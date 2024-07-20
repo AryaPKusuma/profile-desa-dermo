@@ -21,7 +21,7 @@ class ProductCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -31,47 +31,69 @@ class ProductCrudController extends CrudController
         CRUD::setEntityNameStrings('product', 'products');
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     * 
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
+
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        // CRUD::setFromDb();
+        $this->crud->addColumn(['name' => 'umkm_id', 'type' => 'select', 'label' => 'UMKM','entity' => 'umkm', 'attribute' => 'name', 'model' => 'App\Models\Umkm']);
+        $this->crud->addColumn(['name' => 'name', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'photo', 'type' => 'image','disk' => 'public']);
+        $this->crud->addColumn(['name' => 'price', 'type' => 'number']);
+        $this->crud->addColumn(['name' => 'unit_type', 'type' => 'text']);
 
-        /**
-         * Columns can be defined using the fluent syntax:
-         * - CRUD::column('price')->type('number');
-         */
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
     protected function setupCreateOperation()
     {
         CRUD::setValidation([
-            // 'name' => 'required|min:2',
+            'name' => 'required|min:2',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png,bmp|max:500',
+            'price' => 'required|min:2|numeric',
+            'unit_type' => 'required|min:2',
         ]);
-        CRUD::setFromDb(); // set fields from db columns.
 
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        CRUD::field('umkm_id')->label('UMKM Name')->type('select')->entity('umkm')->attribute('name')->model('App\Models\Umkm');
+        CRUD::field('name')->label('Product Name')->type('text');
+        CRUD::field('price')->type('number')->suffix('IDR')->prefix('Rp')->decimals(2)->dec_point(',')->thousands_sep('.');
+        CRUD::field('unit_type')
+        ->label('Unit Product')
+        ->type('select_from_array')
+        ->options([
+            'Pcs' => 'Pcs (Potongan)',
+            'pkt' => 'packet (Paket)',
+            'btl' => 'bottle (Botol)',
+            'jar' => 'jar (Toples)',
+            'kg' => 'Kg (Kilogram)',
+            'g' => 'G (Gram)',
+            'l' => 'L (Liter)',
+            'm' => 'M (Meter)',
+            'cm' => 'cm (Centimeter)',
+            'mm' => 'mm (Millimeter)',
+            'gal' => 'gallon',
+            'doz' => 'dozen (Lusin)',
+        ]);
+
+        CRUD::field('photo')->type('upload')->withFiles([
+            'disk' => 'public',
+            'path' => 'products',
+        ]);
+
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
+    protected function setupShowOperation()
+    {
+
+        $this->setupListOperation();
+    }
+
+    protected function setupDeleteOperation()
+    {
+        CRUD::field('photo')->type('upload')->withFiles([
+            'disk' => 'public',
+            'path' => 'uploads',
+        ]);
+    }
+
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

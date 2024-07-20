@@ -23,18 +23,16 @@ class UmkmCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Umkm::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/umkm');
-        CRUD::setEntityNameStrings('umkm', 'umkm');
+        CRUD::setEntityNameStrings('umkm', 'Shop');
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     *
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        $this->crud->addColumn(['name' => 'name', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'slug', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'category', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'logo', 'type' => 'image','disk' => 'public']);
+        $this->crud->addColumn(['name' => 'halal-sertification', 'type' => 'boolean']);
     }
 
     protected function setupCreateOperation()
@@ -63,6 +61,7 @@ class UmkmCrudController extends CrudController
                 'Kuliner' => 'Kuliner',
                 'Penginapan' => 'Penginapan',
                 'Percetakan' => 'Percetakan',
+                'Barang Bekas' => 'Barang Bekas',
                 'Lainnya' => 'Lainnya',
             ]);
 
@@ -70,7 +69,7 @@ class UmkmCrudController extends CrudController
             ->type('upload')
             ->withFiles([
                 'disk' => 'public',
-                'path' => 'umkm',
+                'path' => 'logo',
         ]);
 
         CRUD::field('image')
@@ -84,6 +83,35 @@ class UmkmCrudController extends CrudController
         CRUD::field('address')->type('text');
         CRUD::field('phone')->type('text');
         CRUD::field('googlemap')->type('text');
+        CRUD::field('halal-sertification')->type('checkbox');
+    }
+
+
+    protected function setupShowOperation()
+    {
+        $this->crud->addColumn(['name' => 'name', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'category', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'slug', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'logo', 'type' => 'image','disk' => 'public']);
+        $this->crud->addColumn(['name' => 'image', 'type' => 'image','disk' => 'public']);
+        $this->crud->addColumn(['name' => 'description', 'type' => 'textarea']);
+        $this->crud->addColumn(['name' => 'address', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'phone', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'googlemap', 'type' => 'text']);
+        $this->crud->addColumn(['name' => 'halal-sertification', 'type' => 'boolean']);
+    }
+
+    protected function setupDeleteOperation()
+    {
+        CRUD::field('image')->type('upload')->withFiles([
+            'disk' => 'public',
+            'path' => 'uploads',
+        ]);
+
+        CRUD::field('logo')->type('upload')->withFiles([
+            'disk' => 'public',
+            'path' => 'uploads',
+        ]);
     }
 
     protected function setupUpdateOperation()

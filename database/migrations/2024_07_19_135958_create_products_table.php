@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('photo')->nullable();
             $table->decimal('price', 10, 2);
-            $table->integer('unit');
             $table->string('unit_type');
             $table->foreignId('umkm_id')->constrained()->onDelete('cascade');
             $table->timestamps();

@@ -11,7 +11,13 @@ class product extends Model
     use CrudTrait;
     use HasFactory;
 
-    protected $fillable = ['name', 'photo', 'price', 'unit', 'unit_type', 'umkm_id'];
+    protected $fillable = [
+        'name',
+        'photo',
+        'price',
+        'unit_type',
+        'umkm_id'
+    ];
 
     public function umkm()
     {

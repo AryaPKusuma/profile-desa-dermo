@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('name');
-            $table->string('logo');
-            $table->string('image');
+            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
             $table->text('description');
             $table->string('category');
             $table->text('address');
             $table->string('phone');
             $table->text('googlemap');
+            $table->boolean('halal-sertification')->default(false);
             $table->timestamps();
         });
     }

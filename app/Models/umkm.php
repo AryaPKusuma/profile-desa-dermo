@@ -20,7 +20,8 @@ class umkm extends Model
         'category',
         'address',
         'phone',
-        'googlemap'
+        'googlemap',
+        'halal-sertification',
     ];
 
     public function products()
