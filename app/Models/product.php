@@ -11,6 +11,7 @@ class product extends Model
     use CrudTrait;
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $fillable = [
         'name',
         'photo',

@@ -11,6 +11,7 @@ class umkm extends Model
     use CrudTrait;
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $fillable = [
         'slug',
         'name',
@@ -27,5 +28,10 @@ class umkm extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function features()
+    {
+        return $this->hasMany(ProductFeature::class);
     }
 }

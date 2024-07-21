@@ -10,8 +10,11 @@
 
 <x-backpack::menu-dropdown title="UMKM" icon="la la-store">
     <x-backpack::menu-dropdown-item title="Stores" icon="la la-store" :link="backpack_url('umkm')" />
-    <x-backpack::menu-dropdown-item title="Products" icon="la la-item" :link="backpack_url('product')" />
+    <x-backpack::menu-dropdown-item title="Products" icon="la la-store" :link="backpack_url('product')" />
+    <x-backpack::menu-dropdown-item title="UMKM features" icon="la la-store" :link="backpack_url('product-feature')" />
 </x-backpack::menu-dropdown>
 {{--
 <x-backpack::menu-item title="Umkms" icon="la la-question" :link="backpack_url('umkm')" />
 <x-backpack::menu-item title="Products" icon="la la-question" :link="backpack_url('product')" /> --}}
+
+
