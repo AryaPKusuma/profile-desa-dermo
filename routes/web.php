@@ -18,4 +18,4 @@ Route::get('/artikel', [App\Http\Controllers\ArticleController::class, 'index'])
 Route::get('/artikel/{article:slug}', [App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('/umkm', [App\Http\Controllers\UmkmController::class, 'index'])->name('umkm');
-Route::get('/umkm/{umkm:id}', [App\Http\Controllers\UmkmController::class, 'show'])->name('umkm.show');
+Route::get('/umkm/{umkm:slug}', [App\Http\Controllers\UmkmController::class, 'show'])->name('umkm.show');

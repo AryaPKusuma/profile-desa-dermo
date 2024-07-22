@@ -14,7 +14,7 @@
     <section class="bg-white">
         <div class="py-8 sm:py-10 lg:py-14 px-4 mx-auto max-w-screen-md">
             @foreach ($umkms as $umkm)
-                <a href="{{ url('/umkm/' . $umkm->id) }}"
+                <a href="{{ url('/umkm/' . $umkm->slug) }}"
                     class="flex flex-col items-center bg-white border border-gray-200 rounded-lg md:flex-row w-full hover:bg-gray-100 mb-4">
                     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
                         src="{{ asset('storage/' . $umkm->image) }}" alt="">
