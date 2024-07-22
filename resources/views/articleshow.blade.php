@@ -12,7 +12,7 @@
                     <span>published at : {{ $article->published_at }}</span>
                 </header>
                 <figure>
-                    <img class="mb-4 md:mb-6" src="{{ asset('storage/' . $article->image) }}" alt="">
+                    <img class="mb-4 md:mb-6 rounded-lg" src="{{ asset('storage/' . $article->image) }}" alt="">
                     <figcaption>{{ $article->title }}</figcaption>
                 </figure>
                 <p class="lead">{!! $article->content !!}</p>

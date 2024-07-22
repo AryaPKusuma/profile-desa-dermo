@@ -3,20 +3,25 @@
 @section('title', 'Artikel')
 
 @section('content')
-
-    <section class=" py-14 flex flex-1 items-center bg-center bg-cover bg-gradient-to-r from-blue-600 to-violet-600">
-        <div class=" pt-14 px-4 mx-auto max-w-screen-xl text-left sm:text-center lg:pb-14 lg:pt-28 lg:px-12 ">
+    {{-- bg-gradient-to-r from-blue-600 to-violet-600 --}}
+    <section class=" py-14 flex flex-1 items-center bg-center bg-cover bg-gray-700 ">
+        <div class=" pt-14 px-4 mx-auto max-w-screen-xl text-left sm:text-center md:pb-12 md:pt-24 md:px-12 ">
             <h1 class="mb-4 text-5xl font-semibold leading-none sm:text-6xl md:text-7xl text-white">
                 Artikel
             </h1>
         </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 sm:py-10 lg:py-14 px-4 mx-auto max-w-screen-md">
+    <section class="bg-white">
+        <div class="py-4 sm:py-8 md:py-12 px-4 mx-auto max-w-screen-md">
 
-            @foreach ($articles as $article)
-                <article class="p-6 my-2 bg-white rounded-lg border-b shadow-none border-gray-200">
+            <h2 class="text-2xl mb-4 font-bold">Daftar Artikel</h2>
+
+            {{-- <article class="p-6 my-2 flex justify-between bg-white rounded-lg border-b shadow-none border-gray-200">
+                <figure class="m-w-xs">
+                    <img class="rounded-" src="{{ asset('storage/' . $article->image) }}" alt="">
+                </figure>
+                <div>
                     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="{{ url('/artikel/'.$article->slug) }}">
                         {{ $article->name }}</a>
                     </h2>
@@ -38,14 +43,30 @@
                             </svg>
                         </a>
                     </div>
-                </article>
-            @endforeach
+                </div>
+            </article> --}}
+
+            <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                @foreach ($articles as $article)
+                    <article class="max-w-xs hover:bg-gray-200 p-2 border rounded-lg">
+                        <a href="{{ url('/artikel/' . $article->slug) }}">
+                            <img src="{{ asset('storage/' . $article->image) }}" class="mb-2 rounded-lg" alt="Image 1">
+                        </a>
+                        <h2 class="mb-1 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                            <a href="{{ url('/artikel/' . $article->slug) }}">{{ $article->name }}</a>
+                        </h2>
+                        {{-- <p class="text-gray-500">{!! $article->content !!}</p> --}}
+                        <span href="#" class="inline-flex items-center text-sm font-normal text-gray-600">
+                            {{ $article->published_at }}
+                        </span>
+                    </article>
+                @endforeach
+            </div>
 
             <div class="flex justify-between mt-8">
 
                 @if ($articles->onFirstPage())
-                    <span
-                        class="invisible">
+                    <span class="invisible">
                         Previous
                     </span>
                 @else
@@ -62,8 +83,7 @@
                         Next
                     </a>
                 @else
-                    <span
-                        class="invisible">
+                    <span class="invisible">
                         Next
                     </span>
                 @endif
