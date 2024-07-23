@@ -11,7 +11,7 @@ class umkm extends Model
     use CrudTrait;
     use HasFactory;
 
-    // protected $guarded = ['id'];
+    protected $guarded = ['id'];
     protected $fillable = [
         'slug',
         'name',

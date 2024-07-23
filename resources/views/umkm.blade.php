@@ -31,7 +31,8 @@
     </section>
 
     <section class="bg-white">
-        <div class="py-8 sm:py-10 lg:py-14 px-4 mx-auto max-w-screen-lg">
+        <div id="umkm-list" class="py-8 sm:py-10 lg:py-14 px-4 mx-auto max-w-screen-lg">
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 @foreach ($umkms as $umkm)
                     <a href="{{ url('/umkm/' . $umkm->slug) }}"
@@ -51,10 +52,7 @@
 
             </div>
 
-
-            {{-- pagination --}}
             <div class="flex justify-between mt-8">
-
                 @if ($umkms->onFirstPage())
                     <span class="invisible">
                         Previous
@@ -66,7 +64,6 @@
                     </a>
                 @endif
 
-                <!-- Next Button -->
                 @if ($umkms->hasMorePages())
                     <a href="{{ $umkms->nextPageUrl() }}"
                         class="flex items-center justify-center px-3 h-8 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -78,9 +75,25 @@
                     </span>
                 @endif
             </div>
+
         </div>
     </section>
 
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#umkm-search').on('keyup', function() {
+                var query = $(this).val();
 
+                $.ajax({
+                    url: "{{ route('search.umkm') }}",
+                    type: "GET",
+                    data: {'query': query},
+                    success: function(data) {
+                        $('#umkm-list').html(data);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

@@ -10,7 +10,6 @@ class UmkmController extends Controller
     function index()
     {
         $umkms = umkm::paginate(10);
-        //with(['products', 'features'])->
         return view('umkm', compact('umkms'));
     }
 
@@ -22,5 +21,19 @@ class UmkmController extends Controller
         ])->where('slug', $slug)->firstOrFail();
 
         return view('umkmshow', compact('umkm'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('query');
+        if ($search) {
+            $umkms = Umkm::where('name', 'LIKE', "%{$search}%")
+                ->orWhere('category', 'LIKE', "%{$search}%")
+                ->paginate(10);
+        } else {
+            $umkms = Umkm::paginate(10);
+        }
+
+        return view('umkmsearch', compact('umkms'))->render();
     }
 }

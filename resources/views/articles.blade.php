@@ -16,7 +16,7 @@
     </section>
 
     <section class="bg-white">
-        <div class="py-4 sm:py-8 md:py-12 px-4 mx-auto max-w-screen-md">
+        <div class="py-4 sm:py-8 md:py-12 px-4 mx-auto max-w-screen-lg">
 
 
             {{-- <article class="p-6 my-2 flex justify-between bg-white rounded-lg border-b shadow-none border-gray-200">
@@ -48,7 +48,7 @@
                 </div>
             </article> --}}
 
-            <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
                 @foreach ($articles as $article)
                     <article class="max-w-xs hover:bg-gray-200 p-2 border rounded-lg">
                         <a href="{{ url('/artikel/' . $article->slug) }}">
