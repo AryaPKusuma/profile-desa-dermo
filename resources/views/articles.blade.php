@@ -5,17 +5,19 @@
 @section('content')
     {{-- bg-gradient-to-r from-blue-600 to-violet-600 --}}
     <section class=" py-14 flex flex-1 items-center bg-center bg-cover bg-gray-700 ">
-        <div class=" pt-14 px-4 mx-auto max-w-screen-xl text-left sm:text-center md:pb-12 md:pt-24 md:px-12 ">
+        <div class=" pt-14 px-4 mx-auto max-w-screen-xl text-left sm:text-center md:pb-10 md:pt-20 md:px-12 ">
             <h1 class="mb-4 text-5xl font-semibold leading-none sm:text-6xl md:text-7xl text-white">
                 Artikel
             </h1>
+            <p class="text-lg font-normal text-gray-300 lg:text-xl">
+                Informasi dan Berita Terkini
+            </p>
         </div>
     </section>
 
     <section class="bg-white">
         <div class="py-4 sm:py-8 md:py-12 px-4 mx-auto max-w-screen-md">
 
-            <h2 class="text-2xl mb-4 font-bold">Daftar Artikel</h2>
 
             {{-- <article class="p-6 my-2 flex justify-between bg-white rounded-lg border-b shadow-none border-gray-200">
                 <figure class="m-w-xs">
