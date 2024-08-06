@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::get('/tentang-dermo', function () {
     return view('about');
-});
+})->name('about');
 
 Route::get('/umkmshow', function () {
     return view('umkmshow');

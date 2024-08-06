@@ -14,7 +14,7 @@
         </section>
     </header>
 
-    <article class="flex justify-between px-4 mx-auto md:max-w-screen-lg">
+    <div class="flex justify-between px-4 mx-auto md:max-w-screen-lg py-6">
         <article>
             <header>
                 <h1 class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:py-6 lg:text-4xl dark:text-white">
@@ -23,11 +23,8 @@
             </header>
             <p class=" text-gray-900 dark:text-white">
                 Desa Dermo merupakan salah satu dari 23 desa yang terletak wilayah administrasi kecamatan Benjeng kabupaten
-                Gresik
-            </p>
-            <br>
-            <p>
-                Daerah bernama Dermo tersebut masuk wilayah Kecamatan Benjeng. Desa ini ini termasuk salah satu wilayah
+                Gresik. Daerah bernama Dermo tersebut masuk wilayah Kecamatan Benjeng. Desa ini ini termasuk salah satu
+                wilayah
                 ibukota Kec. Benjeng yang terbagi menjadi empat yaitu Bulurejo, Munggugianti, Klampok, dan Dermo.
             </p>
             <br>
@@ -57,7 +54,28 @@
                 terkait keberadaan Desa Dermo yang berjuluk “kademangan Majapahit” di wilayah Gresik. Yang perlu diketahui
                 pula, desa ini dulu tanda batas wilayah kekuasaan Majapahit vs Giri Kedaton. Sekian semoga bermanfaat.
             </p>
+            <header>
+                <h1 class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:py-6 lg:text-4xl dark:text-white">
+                    Visi
+                </h1>
+            </header>
+            <p><em>"Membangun Masyarakat Desa yang Unggul, Adil, Makmur dan Sejahtera, Serta Meningkatkan Pelayanan
+                    Masyarakat Menuju Masyarakat Dermo yang Agamis dan Mandiri"</em></p>
+            <header>
+                <h1 class="py-4 text-3xl font-extrabold leading-tight text-gray-900 lg:py-6 lg:text-4xl dark:text-white">
+                    Misi
+                </h1>
+            </header>
+            <ol class="max-w-md space-y-1 list-decimal list-inside">
+                <li>Mengupayakan Sumberdaya Manusia yang unggul</li>
+                <li>Memastikan kebutuhan pokok masyarakat terpenuhi</li>
+                <li>Mengupayakan kesejahteraan dan kemandirian masyarakat</li>
+                <li>Memastikan masyarakat mendapatkan kelayakan pelayanan yang baik di bidang pemerintahan, pendidikan, dan
+                    Kesehatan</li>
+                <li>Merencanakan setiap pembangunan secara partisipatif dan berkesinambungan dengan melibatkan
+                    unsur prempuan, pemuda dan unsur yang ada.</li>
+                <li>Memastikan bahwa kelembagaan desa berjalan dengan baik.</li>
+            </ol>
         </article>
-
-    </article>
+    </div>
 @endsection

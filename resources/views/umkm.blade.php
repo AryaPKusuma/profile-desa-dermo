@@ -23,7 +23,7 @@
                         </svg>
                     </div>
                     <input type="text" id="umkm-search"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full ps-10 p-2.5"
                         placeholder="Cari UMKM" required />
                 </div>
             </form>
@@ -37,19 +37,17 @@
                 @foreach ($umkms as $umkm)
                     <a href="{{ url('/umkm/' . $umkm->slug) }}"
                         class="flex flex-col items-center bg-white border border-gray-200 rounded-md w-full hover:bg-gray-100 mb-2">
-                        <img class="object-cover w-full rounded-t-md" src="{{ asset('storage/' . $umkm->image) }}"
+                        <img class="object-cover w-full h-48 rounded-t-md" src="{{ asset('storage/' . $umkm->image) }}"
                             alt="">
-                        <div class=" py-4 leading-normal">
+                        <div class="py-4 px-4 leading-normal w-full">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{ $umkm->name }}
                             </h5>
-                            <p class="mb-2 font-normal text-gray-700 dark:text-gray-400">{{ $umkm->description }}</p>
                             <span
-                                class="px-3 py-1 text-xs font-medium text-blue-700 bg-blue-100 rounded-full">{{ $umkm->category }}</span>
+                                class="px-3 py-1 text-xs font-medium text-primary-700 bg-primary-100 rounded-full">{{ $umkm->category }}</span>
                         </div>
                     </a>
                 @endforeach
-
             </div>
 
             <div class="flex justify-between mt-8">

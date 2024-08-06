@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" sizes="114x114" href="{{ asset('mstile-144x144.png') }}">
     <title>@yield('title')</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -12,7 +13,7 @@
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
-        <div class="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> --}}
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Desa Dermo</span>
@@ -33,25 +34,25 @@
                     <li>
                         <a href="{{ route('home') }}"
                             class="block py-2 px-3 {{ Route::currentRouteName() == 'home'
-                                ? ' text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500'
-                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">Home</a>
+                                ? ' text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0 dark:text-white md:dark:text-primary-500'
+                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">Home</a>
                     </li>
                     <li>
                         <a href="{{ route('umkm') }}"
                             class="block py-2 px-3 {{ Route::currentRouteName() == 'umkm'
-                                ? ' text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500'
-                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">UMKM</a>
+                                ? ' text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0 dark:text-white md:dark:text-primary-500'
+                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">UMKM</a>
                     </li>
                     <li>
                         <a href="{{ route('articles') }}"
                             class="block py-2 px-3 {{ Route::currentRouteName() == 'articles'
-                                ? ' text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500'
-                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">Artikel</a>
+                                ? ' text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0 dark:text-white md:dark:text-primary-500'
+                                : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent' }}">Artikel</a>
                     </li>
 
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                        <a href="{{ route('about') }}"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-700 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                             Tentang
                         </a>
                     </li>
@@ -71,16 +72,19 @@
                 </a>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-200">
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Tentang</a>
+                        <a href="https://desadermo.gresikkab.go.id/" class="hover:underline me-4 md:me-6">Desa Siap</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">UMKM</a>
+                        <a href="{{ route('about') }}" class="hover:underline me-4 md:me-6">Tentang</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Lokasi</a>
+                        <a href="href="{{ route('umkm') }}" class="hover:underline me-4 md:me-6">UMKM</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline">Hubungi</a>
+                        <a href="https://maps.app.goo.gl/Xbby32Uo6do2h4KZ6" class="hover:underline me-4 md:me-6">Lokasi</a>
+                    </li>
+                    <li>
+                        <a href="/admin" class="hover:underline">Admin</a>
                     </li>
                 </ul>
             </div>
